@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Html</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quizz Html</h1>
+        <div class="question">
+            <p>Crea una variable de tipo string.</p>
+            <p>Selecciona la opción correcta:</p>
+            <form id="quizForm">
+                <label>
+                    <input type="radio" name="option" value="correcta">
+                    const nuevoString = "string";
+                </label><br>
+                <label>
+                    <input type="radio" name="option" value="incorrecta1">
+                    var nuevoString = 123;
+                </label><br>
+                <label>
+                    <input type="radio" name="option" value="incorrecta2">
+                    let nuevoString = true;
+                </label><br>
+                <label>
+                    <input type="radio" name="option" value="incorrecta3">
+                    const nuevoString = [1, 2, 3];
+                </label><br><br>
+                <button type="button" onclick="checkAnswer()">Enviar</button>
+            </form>
+            <p id="result" class="result"></p>
+        </div>
+    </div>
+    <script>
+        function checkAnswer() {
+            const form = document.getElementById('quizForm');
+            const result = document.getElementById('result');
+            const selectedOption = form.option.value;
+
+            if (selectedOption === "correcta") {
+                result.textContent = "Correcto! const nuevoString = \"string\" es una declaración válida de una variable de tipo string.";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Incorrecto. Por favor, inténtalo de nuevo.";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
